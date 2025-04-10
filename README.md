@@ -1,10 +1,10 @@
-# Web Development Project 6 - *Name of App Here*
+# Web Development Project 6 - *Pet Graphical Data Dashboard*
 
-Submitted by: **Your Name Here**
+Submitted by: **Gustavo Chavez**
 
-This web app: **insert description**
+This web app: **Is a dashboard for pets that can filter by search and type and displays graph data.**
 
-Time spent: **X** hours spent in total
+Time spent: **4** hours spent in total
 
 ## Required Features
 
@@ -38,7 +38,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-[Watch the video walkthrough](https://www.loom.com/share/8cb48a8a621b4e799e998a8e49d048b2?sid=2091b20b-099d-4024-a22e-54a4ebc271c9)
+[Watch the video walkthrough](https://www.loom.com/share/9aab503b1a2946af882b7aa8f5696474?sid=fa4125e9-7d3a-4218-801a-c0f651f010db)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with Loom
