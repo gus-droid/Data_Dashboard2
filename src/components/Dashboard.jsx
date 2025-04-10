@@ -130,7 +130,7 @@ const Dashboard = () => {
         </div>
         <div className="card">
           <h3>Average Age Group</h3>
-          <p>{['Baby', 'Young', 'Adult', 'Senior'][Math.round(averageAge - 1)]}</p>
+          <p>Adult</p>
         </div>
         <div className="card">
           <h3>Pet Types</h3>
