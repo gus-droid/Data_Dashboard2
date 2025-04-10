@@ -6,7 +6,7 @@ const Header = () => {
     <header className="header">
       <div className="header-content">
         <h1>Data Dashboard</h1>
-        <p>Explore and analyze data at a glance</p>
+        <p>Explore Data</p>
       </div>
     </header>
   );

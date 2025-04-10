@@ -7,11 +7,42 @@ const PetDetail = () => {
   const [pet, setPet] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [accessToken, setAccessToken] = useState(null);
 
+  const API_KEY = import.meta.env.VITE_APP_ACCESS_KEY;
+  const API_SECRET = ''; // You'll need to add your API secret here
+
+  // Get access token
+  useEffect(() => {
+    const getAccessToken = async () => {
+      try {
+        const response = await fetch('https://api.petfinder.com/v2/oauth2/token', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: `grant_type=client_credentials&client_id=${API_KEY}&client_secret=${API_SECRET}`,
+        });
+        
+        if (!response.ok) throw new Error('Failed to get access token');
+        
+        const data = await response.json();
+        setAccessToken(data.access_token);
+      } catch (err) {
+        setError('Failed to authenticate with Petfinder API');
+        setLoading(false);
+      }
+    };
+
+    getAccessToken();
+  }, []);
+
+  // Fetch pet details when we have an access token
   useEffect(() => {
     const fetchPetDetails = async () => {
+      if (!accessToken) return;
+
       try {
-        // You'll need to implement the token fetching logic here or pass it as a prop
         const response = await fetch(`https://api.petfinder.com/v2/animals/${id}`, {
           headers: {
             'Authorization': `Bearer ${accessToken}`,
@@ -30,7 +61,7 @@ const PetDetail = () => {
     };
 
     fetchPetDetails();
-  }, [id]);
+  }, [id, accessToken]);
 
   if (loading) return <div className="loading">Loading pet details...</div>;
   if (error) return <div className="error">Error: {error}</div>;
